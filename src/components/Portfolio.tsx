@@ -6,12 +6,14 @@ const projects = [
     title: "Sistema de Gestión de información para Centro de Estimulación infantil",
     category: "Sistemas Web",
     image: "https://i.ibb.co/QFJ0SKzN/Dashboard-Datilera.png",
+    link: "https://datilera.onrender.com/",
     delay: 0.1
   },
   {
     title: "App Móvil de Control de Finanzas",
     category: "Aplicaciones Móviles",
     image: "https://i.ibb.co/7dczfFkv/Control-Finanzasjpeg.jpg",
+    link: "https://wa.me/59176988638?text=Quiero%20la%20demo%20de%20la%20app%20de%20Control%20de%20finanzas%20porfavor.",
     delay: 0.2
   }
 ];
@@ -24,42 +26,43 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-6"
         >
-
-        
-
           <span className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-4 block">Portafolio</span>
-          </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold font-display tracking-tight text-text-main mb-6"
-            >
-              Nuestra Ingeniería en Acción.
-             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-lg text-text-muted"
-            >  
-              Explora algunos de nuestros desarrollos más recientes y cómo ayudamos a escalar negocios.
-            </motion.p>
+        </motion.div>
+        
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl md:text-5xl font-bold font-display tracking-tight text-text-main mb-6"
+        >
+          Nuestra Ingeniería en Acción.
+        </motion.h2>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-text-muted mb-16"
+        >  
+          Explora algunos de nuestros desarrollos más recientes y cómo ayudamos a escalar negocios.
+        </motion.p>
           
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: project.delay, duration: 0.5 }}
-              className="group relative rounded-2xl overflow-hidden border border-border-subtle aspect-[4/3] cursor-pointer"
+              className="group relative rounded-2xl overflow-hidden border border-border-subtle aspect-[4/3] cursor-pointer block"
             >
               {/* Image with grayscale by default, color on hover */}
               <img
@@ -84,12 +87,11 @@ export default function Portfolio() {
                   Ver Proyecto <ArrowRight size={16} className="ml-2" />
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
         
         <div className="mt-16 text-center">
-         
         </div>
       </div>
     </section>
